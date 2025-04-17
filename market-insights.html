@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FarmVille — Your Agri Market Partner</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo">
+    <img src="farmville-logo.png" alt="FarmVille Logo" class="logo-img" />
+  </div>
+  <nav>
+    <ul>
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="product-catalog.html">Browse Products</a></li>
+      <li><a href="market-insights.html">Market Insights</a></li>
+      <li><a href="order-history.html">My Orders</a></li>
+      <li><a href="support.html">Support</a></li>
+      <li><a href="feedback.html">Feedbacks</a></li>
+      <li><a href="login.html">Login / Profile</a></li>
+    </ul>
+  </nav>
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search for crops or products..." />
+    <button onclick="searchProducts()">🔍</button>
+  </div>
+</header>
+
+    <!-- Main Content -->
+    <main>
+        <section id="trend-analysis">
+            <h2>Crop Prices (January - October)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Crop</th>
+                        <th>January</th>
+                        <th>February</th>
+                        <th>March</th>
+                        <th>April</th>
+                        <th>May</th>
+                        <th>June</th>
+                        <th>July</th>
+                        <th>August</th>
+                        <th>September</th>
+                        <th>October</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Coarse Rice</td>
+                        <td>50৳</td>
+                        <td>51৳</td>
+                        <td>52৳</td>
+                        <td>52৳</td>
+                        <td>53৳</td>
+                        <td>53৳</td>
+                        <td>54৳</td>
+                        <td>54৳</td>
+                        <td>54৳</td>
+                        <td>53৳</td>
+                    </tr>
+                    <tr>
+                        <td>Fine Rice</td>
+                        <td>65৳</td>
+                        <td>66৳</td>
+                        <td>66৳</td>
+                        <td>67৳</td>
+                        <td>67৳</td>
+                        <td>68৳</td>
+                        <td>68৳</td>
+                        <td>68৳</td>
+                        <td>68৳</td>
+                        <td>67৳</td>
+                    </tr>
+                    <tr>
+                        <td>Wheat Flour (Atta)</td>
+                        <td>62৳</td>
+                        <td>63৳</td>
+                        <td>63৳</td>
+                        <td>64৳</td>
+                        <td>64৳</td>
+                        <td>64৳</td>
+                        <td>65৳</td>
+                        <td>65৳</td>
+                        <td>65৳</td>
+                        <td>64৳</td>
+                    </tr>
+                    <tr>
+                        <td>Lentils (Masoor Dal)</td>
+                        <td>125৳</td>
+                        <td>126৳</td>
+                        <td>127৳</td>
+                        <td>128৳</td>
+                        <td>129৳</td>
+                        <td>130৳</td>
+                        <td>130৳</td>
+                        <td>130৳</td>
+                        <td>130৳</td>
+                        <td>130৳</td>
+                    </tr>
+                    <tr>
+                        <td>Green Grams (Moong Dal)</td>
+                        <td>115৳</td>
+                        <td>116৳</td>
+                        <td>117৳</td>
+                        <td>118৳</td>
+                        <td>119৳</td>
+                        <td>120৳</td>
+                        <td>121৳</td>
+                        <td>121৳</td>
+                        <td>121৳</td>
+                        <td>120৳</td>
+                    </tr>
+                    <tr>
+                        <td>Soybean Oil</td>
+                        <td>175৳</td>
+                        <td>176৳</td>
+                        <td>177৳</td>
+                        <td>178৳</td>
+                        <td>179৳</td>
+                        <td>180৳</td>
+                        <td>180৳</td>
+                        <td>180৳</td>
+                        <td>180৳</td>
+                        <td>180৳</td>
+                    </tr>
+                    <tr>
+                        <td>Mustard Oil</td>
+                        <td>225৳</td>
+                        <td>226৳</td>
+                        <td>227৳</td>
+                        <td>228৳</td>
+                        <td>229৳</td>
+                        <td>230৳</td>
+                        <td>230৳</td>
+                        <td>230৳</td>
+                        <td>230৳</td>
+                        <td>230৳</td>
+                    </tr>
+                    <tr>
+                        <td>Potatoes</td>
+                        <td>70৳</td>
+                        <td>71৳</td>
+                        <td>72৳</td>
+                        <td>73৳</td>
+                        <td>74৳</td>
+                        <td>75৳</td>
+                        <td>75৳</td>
+                        <td>75৳</td>
+                        <td>75৳</td>
+                        <td>75৳</td>
+                    </tr>
+                    <tr>
+                        <td>Onions</td>
+                        <td>100৳</td>
+                        <td>101৳</td>
+                        <td>102৳</td>
+                        <td>103৳</td>
+                        <td>104৳</td>
+                        <td>105৳</td>
+                        <td>106৳</td>
+                        <td>107৳</td>
+                        <td>108৳</td>
+                        <td>110৳</td>
+                    </tr>
+                    <tr>
+                        <td>Garlic</td>
+                        <td>210৳</td>
+                        <td>211৳</td>
+                        <td>212৳</td>
+                        <td>213৳</td>
+                        <td>214৳</td>
+                        <td>215৳</td>
+                        <td>216৳</td>
+                        <td>217৳</td>
+                        <td>218৳</td>
+                        <td>220৳</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="trend-graphs">
+            <h2>Price Trends Graph</h2>
+            <canvas id="cropChart" width="400" height="200"></canvas>
+        </section>
+
+    </main>
+
+    <script>
+        const ctx = document.getElementById('cropChart').getContext('2d');
+        const cropChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October'],
+                datasets: [
+                {
+                        label: 'Coarse Rice',
+                        data: [50, 51, 52, 52, 53, 53, 54, 54, 54, 53],
+                        borderColor: 'blue',
+                        borderWidth: 2,
+                        fill: false
+                    },
+                    {
+                        label: 'Fine Rice',
+                        data: [65, 66, 66, 67, 67, 68, 68, 68, 68, 67],
+                        borderColor: 'green',
+                        borderWidth: 2,
+                        fill: false
+                    },
+                    {
+                        label: 'Wheat Flour (Atta)',
+                        data: [62, 63, 63, 64, 64, 64, 65, 65, 65, 64],
+                        borderColor: 'orange',
+                        borderWidth: 2,
+                        fill: false
+                    },
+                    {
+                        label: 'Fine Wheat Flour (Maida)',
+                        data: [66, 67, 67, 68, 68, 69, 69, 69, 69, 68],
+                        borderColor: 'purple',
+                        borderWidth: 2,
+                        fill: false
+                    },
+                    {
+                        label: 'Lentils (Masoor Dal)',
+                        data: [125, 126, 127, 128, 129, 130, 130, 130, 130, 130],
+                        borderColor: 'red',
+                        borderWidth: 2,
+                        fill: false
+                    },
+                    {
+                        label: 'Green Grams (Moong Dal)',
+                        data: [115, 116, 117, 118, 119, 120, 121, 121, 121, 120],
+                        borderColor: 'sky blue',
+                        borderWidth: 2,
+                        fill: false
+                    },
+                    {
+                        label: 'Soybean Oil',
+                        data: [175, 176, 177, 178, 179, 180, 180, 180, 180, 180],
+                        borderColor: 'brown',
+                        borderWidth: 2,
+                        fill: false
+                    },
+                    {
+                        label: 'Mustard Oil',
+                        data: [225, 226, 227, 228, 229, 230, 230, 230, 230, 230],
+                        borderColor: 'wine red',
+                        borderWidth: 2,
+                        fill: false
+                    },
+                    {
+                        label: 'Potatoes',
+                        data: [70, 71, 72, 73, 74, 75, 75, 75, 75, 75],
+                        borderColor: 'gray',
+                        borderWidth: 2,
+                        fill: false
+                    },
+                    {
+                        label: 'Onions',
+                        data: [100, 101, 102, 103, 104, 105, 106, 107, 108, 110],
+                        borderColor: 'violet',
+                        borderWidth: 2,
+                        fill: false
+                    },
+                    {
+                        label: 'Garlic',
+                        data: [210, 211, 212, 213, 214, 215, 216, 217, 218, 220],
+                        borderColor: 'crimson red',
+                        borderWidth: 2,
+                        fill: false
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top',
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Months'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Price (in ৳)'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+<footer>
+    <div class="footer-content">
+      <p>&copy; 2025 FarmVille | Market Intelligence for Smarter Farming Decisions</p>
+      <p><a href="privacy-policy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
+      <div class="social-links">
+        <a href="https://facebook.com" target="_blank">Facebook</a>
+        <a href="https://twitter.com" target="_blank">Twitter</a>
+        <a href="https://instagram.com" target="_blank">Instagram</a>
+      </div>
+    </div>
+</footer>
+  
+<script>
+    const products = [
+      { name: "Maize - Hybrid", status: "In Season", price: "$0.85/kg" },
+      { name: "Rice - Basmati", status: "Off-Season", price: "$1.20/kg" },
+      { name: "Groundnuts", status: "In Season", price: "$0.75/kg" },
+      { name: "Wheat - Local Variety", status: "Off-Season", price: "$1.10/kg" }
+    ];
+  
+    function searchProducts() {
+      const query = document.getElementById("searchInput").value.toLowerCase();
+      const result = products.filter(product => product.name.toLowerCase().includes(query));
+  
+      if (result.length > 0) {
+        alert("Found " + result.length + " product(s) matching your search.");
+        console.log(result);
+      } else {
+        alert("No products found matching your search.");
+      }
+    }
+  </script>
+  
+  </body>
+  </html>

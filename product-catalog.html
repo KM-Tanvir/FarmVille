@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FarmVille — Product Catalog</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo">
+    <img src="farmville-logo.png" alt="FarmVille Logo" class="logo-img" />
+  </div>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="product-catalog.html" class="active">Browse Products</a></li>
+      <li><a href="market-insights.html">Market Insights</a></li>
+      <li><a href="order-history.html">My Orders</a></li>
+      <li><a href="support.html">Support</a></li>
+      <li><a href="feedback.html">Feedbacks</a></li>
+      <li><a href="login.html">Login / Profile</a></li>
+    </ul>
+  </nav>
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search for crops or products..." />
+    <button onclick="searchProducts()">🔍</button>
+  </div>
+</header>
+
+<main>
+    <section id="market-prices">
+        <h2>Current Market Prices</h2>
+        <p>Here, we gather crops from all over Bangladesh at the lowest prices!</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Crop Type</th>
+                    <th>Price (per kg)</th>
+                    <th>Market</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Coarse Rice</td>
+                    <td>53 ৳</td>
+                    <td>Kawran Bazar</td>
+                </tr>
+                <tr>
+                    <td>Fine Rice</td>
+                    <td>67 ৳</td>
+                    <td>Rajshahi Agricultural Market </td>
+                </tr>
+                <tr>
+                    <td>Wheat Flour (Atta)</td>
+                    <td>64 ৳</td>
+                    <td>Shyamoli Bazar</td>
+                </tr>
+                <tr>
+                    <td>Fine Wheat Flour (Maida)</td>
+                    <td>68 ৳</td>
+                    <td>Chittagong Bazar</td>
+                </tr>
+                <tr>
+                    <td>Lentils (Masoor dal)</td>
+                    <td>130 ৳</td>
+                    <td>Kawran Bazar</td>
+                </tr>
+                <tr>
+                    <td>Green grams (Moong dal)</td>
+                    <td>120 ৳</td>
+                    <td>Faridpur Bazar</td>
+                </tr>
+                <tr>
+                    <td>Soybean Oil</td>
+                    <td>180 ৳</td>
+                    <td>Shyamoli Bazar</td>
+                </tr>
+                <tr>
+                    <td>Mustard Oil</td>
+                    <td>230 ৳</td>
+                    <td>Shyam Bazar</td>
+                </tr>
+                <tr>
+                    <td>Potatoes</td>
+                    <td>75 ৳</td>
+                    <td>Mongla Port Market</td>
+                </tr>
+                <tr>
+                    <td>Onions</td>
+                    <td>110 ৳</td>
+                    <td>Shyam Bazar</td>
+                </tr>
+                <tr>
+                    <td>Garlics</td>
+                    <td>220 ৳</td>
+                    <td>Mongla Port Market</td>
+                </tr>                                                                                     
+            </tbody>
+        </table>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-content">
+      <p>&copy; 2025 FarmVille | Market Intelligence for Smarter Farming Decisions</p>
+      <p><a href="privacy-policy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
+      <div class="social-links">
+        <a href="https://facebook.com" target="_blank">Facebook</a>
+        <a href="https://twitter.com" target="_blank">Twitter</a>
+        <a href="https://instagram.com" target="_blank">Instagram</a>
+      </div>
+    </div>
+</footer>
+  
+<script>
+    const products = [
+      { name: "Maize - Hybrid", status: "In Season", price: "$0.85/kg" },
+      { name: "Rice - Basmati", status: "Off-Season", price: "$1.20/kg" },
+      { name: "Groundnuts", status: "In Season", price: "$0.75/kg" },
+      { name: "Wheat - Local Variety", status: "Off-Season", price: "$1.10/kg" }
+    ];
+  
+    function searchProducts() {
+      const query = document.getElementById("searchInput").value.toLowerCase();
+      const result = products.filter(product => product.name.toLowerCase().includes(query));
+  
+      if (result.length > 0) {
+        alert("Found " + result.length + " product(s) matching your search.");
+        console.log(result);
+      } else {
+        alert("No products found matching your search.");
+      }
+    }
+</script>
+  
+</body>
+</html>
