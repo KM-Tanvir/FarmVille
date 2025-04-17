@@ -13,20 +13,27 @@
   <div class="logo">
     <img src="farmville-logo.png" alt="FarmVille Logo" class="logo-img" />
   </div>
+
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search for products..." onkeyup="searchProducts()" />
+    <button onclick="searchProducts()">🔍</button>
+  </div>
+
   <nav>
     <ul>
       <li><a href="homepage.html">Home</a></li>
       <li><a href="product-catalog.html" class="active">Browse Products</a></li>
       <li><a href="market-insights.html">Market Insights</a></li>
       <li><a href="order-history.html">My Orders</a></li>
-      <li><a href="support.html">Support</a></li>
       <li><a href="feedback.html">Feedbacks</a></li>
-      <li><a href="login.html">Login / Profile</a></li>
+      <li><a href="login.html">Logout</a></li>
     </ul>
   </nav>
-  <div class="search-bar">
-    <input type="text" id="searchInput" placeholder="Search for products..." onkeyup="searchProducts()" />
-    <button onclick="searchProducts()">🔍</button>
+  
+  <div class="cart-icon">
+    <a href="order-history.html#cart">
+      <span id="cartCount">0</span> 🛒
+    </a>
   </div>
 </header>
 
@@ -46,6 +53,7 @@
                     <th>Vendor Name</th>
                     <th>Delivery Estimate</th>
                     <th>Bulk Order Discount</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody id="productList">
@@ -82,6 +90,11 @@
         {crop: "Garlics", price: "220 ৳", status: "Off Season", availability: "Low Stock", updated: "17-Apr-2025", vendor: "Garlic World Traders", delivery: "3 Days", discount: "Contact for Offer"}
     ];
 
+    // Initialize cart in localStorage if it doesn't exist
+    if (!localStorage.getItem('farmvilleCart')) {
+        localStorage.setItem('farmvilleCart', JSON.stringify([]));
+    }
+
     function displayProducts(productsToDisplay) {
         const productList = document.getElementById('productList');
         productList.innerHTML = '';
@@ -97,6 +110,13 @@
                 <td data-label="Vendor Name">${product.vendor}</td>
                 <td data-label="Delivery Estimate">${product.delivery}</td>
                 <td data-label="Bulk Order Discount">${product.discount}</td>
+                <td data-label="Action">
+                    <div class="order-actions">
+                        <button class="btn add-to-cart-btn" onclick="addToCart('${product.crop}', '${product.price}', '${product.vendor}')">
+                            Add to Cart
+                        </button>
+                    </div>
+                </td>
             `;
             productList.appendChild(row);
         });
@@ -114,8 +134,38 @@
         displayProducts(filteredProducts);
     }
 
+    function addToCart(crop, price, vendor) {
+        const cart = JSON.parse(localStorage.getItem('farmvilleCart')) || [];
+        
+        // Check if product already exists in cart
+        const existingProduct = cart.find(item => item.crop === crop && item.vendor === vendor);
+        
+        if (existingProduct) {
+            existingProduct.quantity += 1;
+        } else {
+            cart.push({
+                crop: crop,
+                price: price,
+                vendor: vendor,
+                quantity: 1
+            });
+        }
+        
+        localStorage.setItem('farmvilleCart', JSON.stringify(cart));
+        updateCartCount();
+        
+        alert(`${crop} added to cart!`);
+    }
+
+    function updateCartCount() {
+        const cart = JSON.parse(localStorage.getItem('farmvilleCart')) || [];
+        const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+        document.getElementById('cartCount').innerText = totalItems;
+    }
+
     // Display all products by default
     displayProducts(products);
+    updateCartCount();
 </script>
 
 </body>

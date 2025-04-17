@@ -19,15 +19,11 @@
       <li><a href="product-catalog.html">Browse Products</a></li>
       <li><a href="market-insights.html">Market Insights</a></li>
       <li><a href="order-history.html">My Orders</a></li>
-      <li><a href="support.html">Support</a></li>
       <li><a href="feedback.html">Feedbacks</a></li>
-      <li><a href="login.html">Login / Profile</a></li>
+      <li><a href="login.html">Logout</a></li>
     </ul>
   </nav>
-  <div class="search-bar">
-    <input type="text" id="searchInput" placeholder="Search for products..." />
-    <button onclick="searchProducts()">🔍</button>
-  </div>
+
 </header>
 
 <section class="hero-section">
@@ -48,7 +44,7 @@
       </div>
       <div class="product-details">
         <h3>Fine Rice</h3>
-        <p>Status: <span class="off-season">In Season</span></p>
+        <p>Status: <span class="off-season">Off Season</span></p>
         <p>Price: <strong>৳67/kg</strong></p>
         <p>Availability: <span class="low-stock">Low Stock</span></p>
       </div>
@@ -58,20 +54,12 @@
 </section>
 
 <section id="market-trends" class="content-box">
-  <h2>📊 Market Trends</h2>
+  <h2>📊 Market Insights</h2>
   <div class="trend-chart">
     <p><strong>Maize, Rice, Potato (7-Day Average Price)</strong></p>
     <p class="note">Updated: Real-time data from vendors & farmers</p>
     <a href="market-insights.html" class="btn">Explore Full Market Trends</a>
   </div>
-</section>
-
-<section id="smart-recommendations" class="content-box">
-  <h2>💡 Smart Recommendations</h2>
-  <ul>
-    <li>📉 Potato prices likely to drop — Pre-order today!</li>
-    <li>🌾 Onion prices are stable — Buy now for future savings.</li>
-  </ul>
 </section>
 
 <section id="top-vendors" class="content-box">
@@ -85,55 +73,112 @@
     <h3>Grow Land</h3>
     <p>Clean interface, real-time updates, and better reach — FarmVille helps us sell smarter every day!</p>
     <p>Rating: ⭐⭐⭐⭐⭐</p>
-    <a href="vendor-products.html" class="btn">View Products</a>
+  </div>
+
+  <div>
+    <a href="vendor-products.html" class="btn">View Vendors & Their Qualityful Products</a>
     <span class="certified">✔ Certified FarmVille Vendor</span>
   </div>
 </section> 
 
-<section id="real-time-supply" class="content-box">
-  <h2>🗓️ Real-Time Supply Updates</h2>
-  <ul>
-    <li>⚠️ Stock running low on Soybeans in your region.</li>
-    <li>🌱 New harvest available for Groundnuts.</li>
-  </ul>
+<section id="crop-seasonality" class="content-box">
+  <h2>📅 Crop Seasonality Guide</h2>
+  <table class="seasonality-table">
+    <thead>
+      <tr>
+        <th>Crop</th>
+        <th>Planting Season</th>
+        <th>Harvest Season</th>
+        <th>Best Buying Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Rice (Boro)</td>
+        <td>December – February</td>
+        <td>April – May</td>
+        <td>May – June</td>
+      </tr>
+      <tr>
+        <td>Maize</td>
+        <td>November – January</td>
+        <td>March – May</td>
+        <td>April – June</td>
+      </tr>
+      <tr>
+        <td>Wheat</td>
+        <td>November – December</td>
+        <td>March – April</td>
+        <td>April</td>
+      </tr>
+      <tr>
+        <td>Onion</td>
+        <td>October – November</td>
+        <td>February – March</td>
+        <td>March – April</td>
+      </tr>
+      <tr>
+        <td>Potato</td>
+        <td>October – December</td>
+        <td>January – March</td>
+        <td>February – April</td>
+      </tr>
+      <tr>
+        <td>Tomato</td>
+        <td>September – October</td>
+        <td>December – January</td>
+        <td>January</td>
+      </tr>
+      <tr>
+        <td>Groundnut</td>
+        <td>April – June</td>
+        <td>August – October</td>
+        <td>September – October</td>
+      </tr>
+    </tbody>
+  </table>
 </section>
 
-<section id="support" class="content-box">
-  <p>Need Help? <a href="support.html" class="btn">Contact our support team</a> for order assistance.</p>
+<section id="customer-recommendations" class="content-box">
+  <h2>💡 Smart Buying Recommendations</h2>
+  <ul class="recommendation-list">
+    <li>🌾 Buy <strong>Wheat</strong> now — peak harvest means better pricing & bulk deals available.</li>
+    <li>🥔 Pre-order <strong>Potatoes</strong> before mid-April for lowest market rates.</li>
+    <li>🍅 Avoid <strong>Tomatoes</strong> right now — prices are inflated due to low stock.</li>
+    <li>🧅 Stock up on <strong>Onions</strong> before monsoon hits — risk of price hike ahead.</li>
+    <li>🌽 Monitor <strong>Maize</strong> prices — upward trend expected in next 10 days.</li>
+    <li>🥜 Fresh batch of <strong>Groundnuts</strong> now available — ideal for resellers!</li>
+    <li>🚜 Check local vendor supply for <strong>Rice</strong> — price varies by district this season.</li>
+    <li>📦 Place early orders for <strong>Soybean</strong> — supply is tight this month.</li>
+    <li>🌱 Consider switching to <strong>seasonal crops</strong> for profit margins: Maize & Groundnut are best right now.</li>
+  </ul>
 </section>
 
 <footer>
   <div class="footer-content">
-    <p>&copy; 2025 FarmVille | Market Intelligence for Smarter Farming Decisions</p>
-    <p><a href="privacy-policy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
-    <div class="social-links">
-      <a href="https://facebook.com" target="_blank">Facebook</a>
-      <a href="https://twitter.com" target="_blank">Twitter</a>
+    <div class="footer-section">
+      <p>&copy; 2025 FarmVille | Market Intelligence for Smarter Farming Decisions</p>
+    </div>
+    <div class="footer-section">
+      <h4>📞 Support</h4>
+      <p>Email: <a href="mailto:support@farmville.com">support@farmville.com</a></p>
+      <p>Phone: +880 1234-567890</p>
+      <p>Hours: Mon–Fri, 9AM–6PM</p>
+    </div>
+    <div class="footer-section">
+      <h4>🔗 Quick Links</h4>
+      <a href="#">Privacy Policy</a><br>
+      <a href="#">Terms & Conditions</a><br>
+      <a href="#">Help Center</a>
+    </div>
+    <div class="footer-section">
+      <h4>🌐 Connect</h4>
+      <a href="https://facebook.com" target="_blank">Facebook</a><br>
+      <a href="https://twitter.com" target="_blank">Twitter</a><br>
       <a href="https://instagram.com" target="_blank">Instagram</a>
     </div>
   </div>
 </footer>
-
-<script>
-  const products = [
-    { name: "Maize - Hybrid", status: "In Season", price: "$0.85/kg" },
-    { name: "Rice - Basmati", status: "Off-Season", price: "$1.20/kg" },
-    { name: "Groundnuts", status: "In Season", price: "$0.75/kg" },
-    { name: "Wheat - Local Variety", status: "Off-Season", price: "$1.10/kg" }
-  ];
-
-  function searchProducts() {
-    const query = document.getElementById("searchInput").value.toLowerCase();
-    const result = products.filter(product => product.name.toLowerCase().includes(query));
-
-    if (result.length > 0) {
-      alert("Found " + result.length + " product(s) matching your search.");
-      console.log(result);
-    } else {
-      alert("No products found matching your search.");
-    }
-  }
-</script>
 
 </body>
 </html>

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FarmVille — Your Agri Market Partner</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo">
+    <img src="farmville-logo.png" alt="FarmVille Logo" class="logo-img" />
+  </div>
+  <nav>
+    <ul>
+      <li><a href="homepage.html">Home</a></li>
+      <li><a href="product-catalog.html">Browse Products</a></li>
+      <li><a href="market-insights.html">Market Insights</a></li>
+      <li><a href="order-history.html" class="active">My Orders</a></li>
+      <li><a href="feedback.html">Feedbacks</a></li>
+      <li><a href="login.html">Logout</a></li>
+    </ul>
+  </nav>
+  <div class="cart-icon">
+    <a href="#cart">
+      <span id="cartCount">0</span> 🛒
+    </a>
+  </div>
+</header>
+
+<!-- Cart Section -->
+<section id="cart" class="content-box">
+  <h2 class="text-center">My Cart</h2>
+  <div id="cartItems">
+    <!-- Cart items will be dynamically added here -->
+  </div>
+  
+  <div id="emptyCartMessage" class="text-center" style="display: none;">
+    <p>Your cart is empty. <a href="product-catalog.html">Browse products</a> to add items to your cart.</p>
+  </div>
+  
+  <div id="cartSummary" class="cart-summary">
+    <p><strong>Total Items:</strong> <span id="totalItems">0</span></p>
+    <p><strong>Subtotal:</strong> <span id="subtotal">0 ৳</span></p>
+    <p><strong>Delivery Fee:</strong> <span id="deliveryFee">100 ৳</span></p>
+    <p><strong>Total:</strong> <span id="total">0 ৳</span></p>
+  </div>
+  
+  <div class="button-container">
+    <button id="clearCart" class="btn">Clear Cart</button>
+    <button id="placeOrder" class="btn">Place Order</button>
+  </div>
+</section>
+
+<section class="content-box">
+  <h2 class="text-center">Order History</h2>
+
+  <!-- Order 1 -->
+  <div class="vendor-card">
+    <div class="order-header">
+      <h3>Order ID: #FV12345</h3>
+      <p><strong>Date:</strong> April 16, 2025</p>
+      <span class="certified">✔️ Delivered</span>
+    </div>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-info">
+          <div class="product-details">
+            <h3>Onion</h3>
+            <p>Quantity: 3 kg</p>
+            <p>Vendor: GoldenRoot Suppliers</p>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-info">
+          <div class="product-details">
+            <h3>Potato</h3>
+            <p>Quantity: 5 kg</p>
+            <p>Vendor: FreshHarvest Ltd. </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p>💲 Total Amount: 290.00 ৳ (incl. delivery & taxes)</p>
+    <p>📍 Delivery Address: 123 Mirpur Road, Dhaka</p>
+    <p>💳 Payment: Mobile Money</p>
+    <p>🌱 Harvest Date: April 14, 2025</p>
+    <p>🕰 Estimated Delivery Time: Delivered within 24 hours</p>
+    <div class="button-container">
+      <a href="#" class="btn">Download Invoice</a>
+      <a href="#" class="btn">Contact Support</a>
+      <a href="product-catalog.html" class="btn">🔁 Reorder</a>
+      <a href="feedback.html" class="btn">⭐ Leave Review</a>
+    </div>
+  </div>
+
+  <!-- Order 2 -->
+  <div class="vendor-card">
+    <div class="order-header">
+      <h3>Order ID: #FV12346</h3>
+      <p><strong>Date:</strong> April 14, 2025</p>
+      <span class="certified" style="background-color: #fef9c3; color: #ca8a04;">⏳ In Progress</span>
+    </div>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-info">
+          <div class="product-details">
+            <h3>Garlic</h3>
+            <p>Quantity: 50kg</p>
+            <p>Vendor: Garlic World Traders</p>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-info">
+          <div class="product-details">
+            <h3>Onion</h3>
+            <p>Quantity: 40 kg</p>
+            <p>Vendor: GoldenRoot Suppliers</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p>💲 Total Amount: 13600.00৳ (incl. delivery & taxes)</p>
+    <p>📍 Delivery Address: 456 Love Road, Chittagong</p>
+    <p>💳 Payment: Visa</p>
+    <p>🌱 Harvest Date: April 12, 2025</p>
+    <p>🕰 Estimated Delivery Time: 2-3 Days</p>
+    <div class="button-container">
+      <a href="#" class="btn">Download Invoice</a>
+      <a href="#" class="btn">Contact Support</a>
+      <a href="product-catalog.html" class="btn">🔁 Reorder</a>
+      <a href="feedback.html" class="btn">⭐ Leave Review</a>
+    </div>
+  </div>
+
+  <!-- Order 3 -->
+  <div class="vendor-card">
+    <div class="order-header">
+      <h3>Order ID: #FV12347</h3>
+      <p><strong>Date:</strong> April 10, 2025</p>
+      <span class="certified" style="background-color: #fee2e2; color: #dc2626;">❌ Cancelled</span>
+    </div>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-info">
+          <div class="product-details">
+            <h3>Fine Rice</h3>
+            <p>Quantity: 1000kg</p>
+            <p>Vendor: AgroStar Ltd.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p>💲 Total Amount: 67600.00 ৳ (incl. delivery & taxes)</p>
+    <p>📍 Delivery Address: 789 Chowdhury Para, Naoga</p>
+    <p>💳 Payment: Cash on Delivery</p>
+    <p>🌱 Harvest Date: April 8, 2025</p>
+    <p>🕰 Estimated Delivery Time: N/A</p>
+    <div class="button-container">
+      <a href="#" class="btn">Download Invoice</a>
+      <a href="#" class="btn">Contact Support</a>
+      <a href="product-catalog.html" class="btn">🔁 Reorder</a>
+      <a href="feedback.html" class="btn">⭐ Leave Review</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-content">
+    <p>&copy; 2025 FarmVille | Market Intelligence for Smarter Farming Decisions</p>
+    <p><a href="privacy-policy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
+    <div class="social-links">
+      <a href="https://facebook.com" target="_blank">Facebook</a>
+      <a href="https://twitter.com" target="_blank">Twitter</a>
+      <a href="https://instagram.com" target="_blank">Instagram</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Load cart from localStorage
+    loadCart();
+    
+    // Setup event listeners
+    document.getElementById('clearCart').addEventListener('click', clearCart);
+    document.getElementById('placeOrder').addEventListener('click', placeOrder);
+  });
+  
+  function loadCart() {
+    const cart = JSON.parse(localStorage.getItem('farmvilleCart')) || [];
+    const cartItems = document.getElementById('cartItems');
+    const emptyCartMessage = document.getElementById('emptyCartMessage');
+    const cartSummary = document.getElementById('cartSummary');
+    
+    // Update cart count
+    document.getElementById('cartCount').innerText = cart.reduce((total, item) => total + item.quantity, 0);
+    
+    // Clear previous items
+    cartItems.innerHTML = '';
+    
+    if (cart.length === 0) {
+      emptyCartMessage.style.display = 'block';
+      cartSummary.style.display = 'none';
+      document.getElementById('clearCart').style.display = 'none';
+      document.getElementById('placeOrder').style.display = 'none';
+      return;
+    }
+    
+    emptyCartMessage.style.display = 'none';
+    cartSummary.style.display = 'block';
+    document.getElementById('clearCart').style.display = 'inline-block';
+    document.getElementById('placeOrder').style.display = 'inline-block';
+    
+    // Create cart items table
+    const table = document.createElement('table');
+    table.className = 'cart-table';
+    
+    // Add table header
+    const tableHeader = document.createElement('thead');
+    tableHeader.innerHTML = `
+      <tr>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Vendor</th>
+        <th>Quantity</th>
+        <th>Subtotal</th>
+        <th>Action</th>
+      </tr>
+    `;
+    table.appendChild(tableHeader);
+    
+    // Add table body
+    const tableBody = document.createElement('tbody');
+    
+    let subtotal = 0;
+    let totalItems = 0;
+    
+    cart.forEach((item, index) => {
+      const priceNumber = parseInt(item.price.replace('৳', '').trim());
+      const itemSubtotal = priceNumber * item.quantity;
+      subtotal += itemSubtotal;
+      totalItems += item.quantity;
+      
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td data-label="Product">${item.crop}</td>
+        <td data-label="Price">${item.price}</td>
+        <td data-label="Vendor">${item.vendor}</td>
+        <td data-label="Quantity">
+          <div class="quantity-controls">
+            <button class="quantity-btn" onclick="decreaseQuantity(${index})">-</button>
+            <input type="number" min="1" value="${item.quantity}" onchange="updateQuantity(${index}, this.value)">
+            <button class="quantity-btn" onclick="increaseQuantity(${index})">+</button>
+          </div>
+        </td>
+        <td data-label="Subtotal">${itemSubtotal} ৳</td>
+        <td data-label="Action">
+          <button class="remove-btn" onclick="removeFromCart(${index})">🗑️</button>
+        </td>
+      `;
+      tableBody.appendChild(row);
+    });
+    
+    table.appendChild(tableBody);
+    cartItems.appendChild(table);
+    
+    // Update cart summary
+    const deliveryFee = 100; // Fixed delivery fee
+    const total = subtotal + deliveryFee;
+    
+    document.getElementById('totalItems').innerText = totalItems;
+    document.getElementById('subtotal').innerText = subtotal + ' ৳';
+    document.getElementById('total').innerText = total + ' ৳';
+  }
+  
+  function updateQuantity(index, value) {
+    const cart = JSON.parse(localStorage.getItem('farmvilleCart')) || [];
+    const quantity = parseInt(value);
+    
+    if (quantity <= 0) {
+      removeFromCart(index);
+      return;
+    }
+    
+    cart[index].quantity = quantity;
+    localStorage.setItem('farmvilleCart', JSON.stringify(cart));
+    loadCart();
+  }
+  
+  function increaseQuantity(index) {
+    const cart = JSON.parse(localStorage.getItem('farmvilleCart')) || [];
+    cart[index].quantity += 1;
+    localStorage.setItem('farmvilleCart', JSON.stringify(cart));
+    loadCart();
+  }
+  
+  function decreaseQuantity(index) {
+    const cart = JSON.parse(localStorage.getItem('farmvilleCart')) || [];
+    if (cart[index].quantity > 1) {
+      cart[index].quantity -= 1;
+      localStorage.setItem('farmvilleCart', JSON.stringify(cart));
+    } else {
+      removeFromCart(index);
+    }
+    loadCart();
+  }
+  
+  function removeFromCart(index) {
+    const cart = JSON.parse(localStorage.getItem('farmvilleCart')) || [];
+    cart.splice(index, 1);
+    localStorage.setItem('farmvilleCart', JSON.stringify(cart));
+    loadCart();
+  }
+  
+  function clearCart() {
+    if (confirm('Are you sure you want to clear your cart?')) {
+      localStorage.setItem('farmvilleCart', JSON.stringify([]));
+      loadCart();
+    }
+  }
+  
+  function placeOrder() {
+    const cart = JSON.parse(localStorage.getItem('farmvilleCart')) || [];
+    if (cart.length === 0) {
+      alert('Your cart is empty. Please add items before placing an order.');
+      return;
+    }
+    
+    if (confirm('Do you want to proceed with this order?')) {
+      alert('Order placed successfully! Your order ID is #FV' + Math.floor(10000 + Math.random() * 90000));
+      localStorage.setItem('farmvilleCart', JSON.stringify([]));
+      loadCart();
+      
+      // Reload the page to show the new order in history (in a real app, this would be handled by the backend)
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
+    }
+  }
+</script>
+
+</body>
+</html>
