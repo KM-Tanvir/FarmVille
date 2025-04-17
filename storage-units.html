@@ -1,0 +1,179 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriStorage - Storage Units</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .unit-card {
+            background: linear-gradient(135deg, #f1f8e9, #c5e1a5);
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 0 6px 12px rgba(76, 175, 80, 0.2);
+            margin-bottom: 2rem;
+            transition: 0.3s ease;
+        }
+
+        .unit-card:hover {
+            box-shadow: 0 12px 24px rgba(76, 175, 80, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .unit-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #4caf50;
+        }
+
+        .status-summary {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .status-summary li {
+            flex: 1 1 200px;
+            display: flex;
+            align-items: center;
+            background: #ffffff;
+            padding: 1rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            gap: 0.75rem;
+        }
+
+        .status-summary li i {
+            font-size: 1.4rem;
+            color: #4caf50;
+        }
+
+        .status-summary li strong {
+            color: #333;
+        }
+
+        /* Farmer input section */
+        .farmer-input-section form {
+            background-color: #f5f5f5;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 1.5rem;
+        }
+
+        .farmer-input-section form input[type="text"],
+        .farmer-input-section form input[type="number"],
+        .farmer-input-section form input[type="date"],
+        .farmer-input-section form select {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+        }
+
+        .farmer-input-section form input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            font-size: 0.9rem; /* Smaller font size */
+            border: none;
+            padding: 8px 16px; /* Reduced padding for smaller size */
+            width: auto; /* Auto width to fit text */
+            height: auto; /* Adjust height to text size */
+            border-radius: 6px; /* Optional: rounded corners for a more polished look */
+        }
+
+        .farmer-input-section form input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="top-nav">
+            <div class="logo">
+                <i class="fas fa-store-alt"></i> AgriStorage
+            </div>
+            <nav class="nav-links">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="storage-units.html" class="active"><i class="fas fa-warehouse"></i> Storage Units</a></li>
+                    <li><a href="inventory-flow.html"><i class="fas fa-exchange-alt"></i> Inventory Flow</a></li>
+                    <li><a href="storage-management.html"><i class="fas fa-tools"></i> Manage Storage</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="main-content">
+            <header>
+                <h1><i class="fas fa-warehouse"></i> Storage Unit Status</h1>
+            </header>
+
+            <section class="storage-units">
+                <div class="unit-card">
+                    <div class="unit-info">
+                        <h3><i class="fas fa-warehouse"></i> SU-002 - East Warehouse</h3>
+                        <ul class="status-summary">
+                            <li><i class="fas fa-boxes"></i> Capacity: <strong>1500 kg</strong></li>
+                            <li><i class="fas fa-weight-hanging"></i> Used: <strong>450 kg (30%)</strong></li>
+                            <li><i class="fas fa-thermometer-half"></i> Temperature: <strong>20°C</strong></li>
+                            <li><i class="fas fa-tint"></i> Humidity: <strong>65%</strong></li>
+                            <li><i class="fas fa-carrot"></i> Products: <strong>Onion</strong></li>
+                            <li><i class="fas fa-check-circle" style="color:green;"></i> Status: <strong>Good</strong></li>
+                            <li><i class="fas fa-info-circle"></i> <span>Stable conditions</span></li>
+                            <li><i class="fas fa-clock"></i> Last Updated: <strong>14 April, 2025</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="add-harvest-card">
+                <div class="harvest-info">
+                    <h2><i class="fas fa-seedling"></i> Add Harvest</h2>
+                    <form>
+                        <div class="form-group">
+                            <label for="farmerName"><i class="fas fa-user"></i> Farmer's Name:</label>
+                            <input type="text" id="farmerName" name="farmerName" placeholder="Enter name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="farmerName"><i class="fas fa-user"></i> ID:</label>
+                            <input type="text" id="ID" name="ID" placeholder="Enter name" required>
+                        </div>
+            
+                        <div class="form-group">
+                            <label for="product"><i class="fas fa-carrot"></i> Product:</label>
+                            <input type="text" id="product" name="product" placeholder="Enter product name" required>
+                        </div>
+            
+                        <div class="form-group">
+                            <label for="quantity"><i class="fas fa-weight-hanging"></i> Quantity (kg):</label>
+                            <input type="number" id="quantity" name="quantity" placeholder="Enter quantity" required>
+                        </div>
+            
+                        <div class="form-group">
+                            <label for="storageUnit"><i class="fas fa-warehouse"></i> Storage Unit:</label>
+                            <input type="text" id="storageUnit" name="storageUnit" placeholder="Enter storage unit" required>
+                        </div>
+            
+                        <div class="form-group">
+                            <label for="storageDate"><i class="fas fa-calendar-alt"></i> Date:</label>
+                            <input type="date" id="storageDate" name="storageDate" required>
+                        </div>
+            
+                        <div class="form-group">
+                            <input type="submit" value="Submit">
+                        </div>
+                    </form>
+                </div>
+            </section>         
+        </main>
+    </div>
+</body>
+</html>
