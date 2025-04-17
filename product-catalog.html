@@ -15,7 +15,7 @@
   </div>
   <nav>
     <ul>
-      <li><a href="index.html">Home</a></li>
+      <li><a href="homepage.html">Home</a></li>
       <li><a href="product-catalog.html" class="active">Browse Products</a></li>
       <li><a href="market-insights.html">Market Insights</a></li>
       <li><a href="order-history.html">My Orders</a></li>
@@ -25,7 +25,7 @@
     </ul>
   </nav>
   <div class="search-bar">
-    <input type="text" id="searchInput" placeholder="Search for crops or products..." />
+    <input type="text" id="searchInput" placeholder="Search for products..." onkeyup="searchProducts()" />
     <button onclick="searchProducts()">🔍</button>
   </div>
 </header>
@@ -33,71 +33,23 @@
 <main>
     <section id="market-prices">
         <h2>Current Market Prices</h2>
-        <p>Here, we gather crops from all over Bangladesh at the lowest prices!</p>
+        <p>We source directly from trusted vendors and supply the best to our customers all over Bangladesh at the lowest prices!</p>
+
         <table>
             <thead>
                 <tr>
                     <th>Crop Type</th>
                     <th>Price (per kg)</th>
-                    <th>Market</th>
+                    <th>Status</th>
+                    <th>Availability</th>
+                    <th>Last Updated</th>
+                    <th>Vendor Name</th>
+                    <th>Delivery Estimate</th>
+                    <th>Bulk Order Discount</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>Coarse Rice</td>
-                    <td>53 ৳</td>
-                    <td>Kawran Bazar</td>
-                </tr>
-                <tr>
-                    <td>Fine Rice</td>
-                    <td>67 ৳</td>
-                    <td>Rajshahi Agricultural Market </td>
-                </tr>
-                <tr>
-                    <td>Wheat Flour (Atta)</td>
-                    <td>64 ৳</td>
-                    <td>Shyamoli Bazar</td>
-                </tr>
-                <tr>
-                    <td>Fine Wheat Flour (Maida)</td>
-                    <td>68 ৳</td>
-                    <td>Chittagong Bazar</td>
-                </tr>
-                <tr>
-                    <td>Lentils (Masoor dal)</td>
-                    <td>130 ৳</td>
-                    <td>Kawran Bazar</td>
-                </tr>
-                <tr>
-                    <td>Green grams (Moong dal)</td>
-                    <td>120 ৳</td>
-                    <td>Faridpur Bazar</td>
-                </tr>
-                <tr>
-                    <td>Soybean Oil</td>
-                    <td>180 ৳</td>
-                    <td>Shyamoli Bazar</td>
-                </tr>
-                <tr>
-                    <td>Mustard Oil</td>
-                    <td>230 ৳</td>
-                    <td>Shyam Bazar</td>
-                </tr>
-                <tr>
-                    <td>Potatoes</td>
-                    <td>75 ৳</td>
-                    <td>Mongla Port Market</td>
-                </tr>
-                <tr>
-                    <td>Onions</td>
-                    <td>110 ৳</td>
-                    <td>Shyam Bazar</td>
-                </tr>
-                <tr>
-                    <td>Garlics</td>
-                    <td>220 ৳</td>
-                    <td>Mongla Port Market</td>
-                </tr>                                                                                     
+            <tbody id="productList">
+                <!-- Rows will go here -->
             </tbody>
         </table>
     </section>
@@ -114,27 +66,57 @@
       </div>
     </div>
 </footer>
-  
+
 <script>
     const products = [
-      { name: "Maize - Hybrid", status: "In Season", price: "$0.85/kg" },
-      { name: "Rice - Basmati", status: "Off-Season", price: "$1.20/kg" },
-      { name: "Groundnuts", status: "In Season", price: "$0.75/kg" },
-      { name: "Wheat - Local Variety", status: "Off-Season", price: "$1.10/kg" }
+        {crop: "Coarse Rice", price: "53 ৳", status: "In Season", availability: "In Stock", updated: "17-Apr-2025", vendor: "GreenField Supplies", delivery: "2-3 Days", discount: "Available"},
+        {crop: "Fine Rice", price: "67 ৳", status: "In Season", availability: "Low Stock", updated: "17-Apr-2025", vendor: "AgroStar Ltd.", delivery: "3 Days", discount: "Available"},
+        {crop: "Wheat Flour (Atta)", price: "64 ৳", status: "In Season", availability: "In Stock", updated: "17-Apr-2025", vendor: "DailyGrain Traders", delivery: "1-2 Days", discount: "Contact for Offer"},
+        {crop: "Fine Wheat Flour (Maida)", price: "68 ৳", status: "In Season", availability: "In Stock", updated: "17-Apr-2025", vendor: "Chittagong Mills Co.", delivery: "2-3 Days", discount: "Available"},
+        {crop: "Lentils (Masoor dal)", price: "130 ৳", status: "In Season", availability: "Low Stock", updated: "17-Apr-2025", vendor: "Bengal Pulses Traders", delivery: "2 Days", discount: "Contact for Offer"},
+        {crop: "Green grams (Moong dal)", price: "120 ৳", status: "Peak Season", availability: "In Stock", updated: "17-Apr-2025", vendor: "Faridpur Agri Co-op", delivery: "2-3 Days", discount: "Available"},
+        {crop: "Soybean Oil", price: "180 ৳", status: "Year-round", availability: "Almost Gone", updated: "17-Apr-2025", vendor: "Shyamoli Oil Traders", delivery: "3-4 Days", discount: "Limited Offer"},
+        {crop: "Mustard Oil", price: "230 ৳", status: "Year-round", availability: "Low Stock", updated: "17-Apr-2025", vendor: "Eastern Mustard Oils", delivery: "3 Days", discount: "Contact for Offer"},
+        {crop: "Potatoes", price: "75 ৳", status: "In Season", availability: "In Stock", updated: "17-Apr-2025", vendor: "FreshHarvest Ltd.", delivery: "1-2 Days", discount: "Available"},
+        {crop: "Onions", price: "110 ৳", status: "Off Season", availability: "Almost Gone", updated: "17-Apr-2025", vendor: "GoldenRoot Suppliers", delivery: "2-4 Days", discount: "Not Available"},
+        {crop: "Garlics", price: "220 ৳", status: "Off Season", availability: "Low Stock", updated: "17-Apr-2025", vendor: "Garlic World Traders", delivery: "3 Days", discount: "Contact for Offer"}
     ];
-  
-    function searchProducts() {
-      const query = document.getElementById("searchInput").value.toLowerCase();
-      const result = products.filter(product => product.name.toLowerCase().includes(query));
-  
-      if (result.length > 0) {
-        alert("Found " + result.length + " product(s) matching your search.");
-        console.log(result);
-      } else {
-        alert("No products found matching your search.");
-      }
+
+    function displayProducts(productsToDisplay) {
+        const productList = document.getElementById('productList');
+        productList.innerHTML = '';
+        
+        productsToDisplay.forEach(product => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td data-label="Crop Type">${product.crop}</td>
+                <td data-label="Price">${product.price}</td>
+                <td data-label="Status">${product.status}</td>
+                <td data-label="Availability">${product.availability}</td>
+                <td data-label="Last Updated">${product.updated}</td>
+                <td data-label="Vendor Name">${product.vendor}</td>
+                <td data-label="Delivery Estimate">${product.delivery}</td>
+                <td data-label="Bulk Order Discount">${product.discount}</td>
+            `;
+            productList.appendChild(row);
+        });
     }
+
+    function searchProducts() {
+        const input = document.getElementById('searchInput').value.toLowerCase();
+        const filteredProducts = products.filter(product =>
+            product.crop.toLowerCase().includes(input) ||
+            product.price.toLowerCase().includes(input) ||
+            product.status.toLowerCase().includes(input) ||
+            product.availability.toLowerCase().includes(input) ||
+            product.vendor.toLowerCase().includes(input)
+        );
+        displayProducts(filteredProducts);
+    }
+
+    // Display all products by default
+    displayProducts(products);
 </script>
-  
+
 </body>
 </html>

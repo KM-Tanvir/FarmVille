@@ -31,7 +31,7 @@ body {
 }
 
 .logo-img {
-  height: 100px;
+  height: 150px;
 }
 
 nav ul {
@@ -74,7 +74,7 @@ nav a.active {
 /* Section headers */
 header h1 {
   text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
   color: white;
   padding: 30px 0;
 }
@@ -159,10 +159,12 @@ section:hover {
   margin: 3px 0;
 }
 
-.product-details .in-season { color: green; font-weight: bold; }
+.product-details .peak-season { color: green; font-weight: bold; }
 .product-details .off-season { color: red; font-weight: bold; }
 .product-details .in-stock { color: green; }
-.product-details .low-stock { color: orange; }
+.product-details .low-stock { color: rgb(255, 170, 0); }
+.product-details .almost-gone { color: rgb(255, 72, 0); }
+.product-details .stock-out { color: red; font-weight: bold; }
 
 .product-card .btn {
   background-color: #43a047;
