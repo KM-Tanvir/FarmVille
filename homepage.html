@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FarmVille — Your Agri Market Partner</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo">
+    <img src="farmville-logo.png" alt="FarmVille Logo" class="logo-img" />
+  </div>
+  <nav>
+    <ul>
+      <li><a href="homepage.html" class="active">Home</a></li>
+      <li><a href="product-catalog.html">Browse Products</a></li>
+      <li><a href="market-insights.html">Market Insights</a></li>
+      <li><a href="order-history.html">My Orders</a></li>
+      <li><a href="support.html">Support</a></li>
+      <li><a href="feedback.html">Feedbacks</a></li>
+      <li><a href="login.html">Login / Profile</a></li>
+    </ul>
+  </nav>
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search for products..." />
+    <button onclick="searchProducts()">🔍</button>
+  </div>
+</header>
+
+<section class="hero-section">
+  <div class="hero-content">
+    <h1>Buy Smart, Farm Fresh — Real-Time Market & Product Insights</h1>
+  </div>
+</section>
+
+<section id="product-highlights" class="content-box">
+  <h2>🌟 Product Highlights</h2>
+  <div class="product-card">
+    <div class="product-info">
+      <div class="product-details">
+        <h3>Potatoes</h3>
+        <p>Status: <span class="in-season">In Season</span></p>
+        <p>Price: <strong>৳75/kg</strong></p>
+        <p>Availability: <span class="in-stock">In Stock</span></p>
+      </div>
+      <div class="product-details">
+        <h3>Fine Rice</h3>
+        <p>Status: <span class="off-season">In Season</span></p>
+        <p>Price: <strong>৳67/kg</strong></p>
+        <p>Availability: <span class="low-stock">Low Stock</span></p>
+      </div>
+    </div>
+    <a href="product-catalog.html" class="btn">See More Products</a>
+  </div>
+</section>
+
+<section id="market-trends" class="content-box">
+  <h2>📊 Market Trends</h2>
+  <div class="trend-chart">
+    <p><strong>Maize, Rice, Potato (7-Day Average Price)</strong></p>
+    <p class="note">Updated: Real-time data from vendors & farmers</p>
+    <a href="market-insights.html" class="btn">Explore Full Market Trends</a>
+  </div>
+</section>
+
+<section id="smart-recommendations" class="content-box">
+  <h2>💡 Smart Recommendations</h2>
+  <ul>
+    <li>📉 Potato prices likely to drop — Pre-order today!</li>
+    <li>🌾 Onion prices are stable — Buy now for future savings.</li>
+  </ul>
+</section>
+
+<section id="top-vendors" class="content-box">
+  <h2>🌍 Top Vendors</h2>
+  <div class="vendor-card">
+    <h3>AgroPro Farmers</h3>
+    <p>Rating: ⭐⭐⭐⭐☆</p>
+  </div>
+
+  <div class="vendor-card">
+    <h3>Grow Land</h3>
+    <p>Clean interface, real-time updates, and better reach — FarmVille helps us sell smarter every day!</p>
+    <p>Rating: ⭐⭐⭐⭐⭐</p>
+    <a href="vendor-products.html" class="btn">View Products</a>
+    <span class="certified">✔ Certified FarmVille Vendor</span>
+  </div>
+</section> 
+
+<section id="real-time-supply" class="content-box">
+  <h2>🗓️ Real-Time Supply Updates</h2>
+  <ul>
+    <li>⚠️ Stock running low on Soybeans in your region.</li>
+    <li>🌱 New harvest available for Groundnuts.</li>
+  </ul>
+</section>
+
+<section id="support" class="content-box">
+  <p>Need Help? <a href="support.html" class="btn">Contact our support team</a> for order assistance.</p>
+</section>
+
+<footer>
+  <div class="footer-content">
+    <p>&copy; 2025 FarmVille | Market Intelligence for Smarter Farming Decisions</p>
+    <p><a href="privacy-policy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
+    <div class="social-links">
+      <a href="https://facebook.com" target="_blank">Facebook</a>
+      <a href="https://twitter.com" target="_blank">Twitter</a>
+      <a href="https://instagram.com" target="_blank">Instagram</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const products = [
+    { name: "Maize - Hybrid", status: "In Season", price: "$0.85/kg" },
+    { name: "Rice - Basmati", status: "Off-Season", price: "$1.20/kg" },
+    { name: "Groundnuts", status: "In Season", price: "$0.75/kg" },
+    { name: "Wheat - Local Variety", status: "Off-Season", price: "$1.10/kg" }
+  ];
+
+  function searchProducts() {
+    const query = document.getElementById("searchInput").value.toLowerCase();
+    const result = products.filter(product => product.name.toLowerCase().includes(query));
+
+    if (result.length > 0) {
+      alert("Found " + result.length + " product(s) matching your search.");
+      console.log(result);
+    } else {
+      alert("No products found matching your search.");
+    }
+  }
+</script>
+
+</body>
+</html>

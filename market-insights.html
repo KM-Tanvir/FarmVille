@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FarmVille — Your Agri Market Partner</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo">
+    <img src="farmville-logo.png" alt="FarmVille Logo" class="logo-img" />
+  </div>
+  <nav>
+    <ul>
+      <li><a href="homepage.html" class="active">Home</a></li>
+      <li><a href="product-catalog.html">Browse Products</a></li>
+      <li><a href="market-insights.html">Market Insights</a></li>
+      <li><a href="order-history.html">My Orders</a></li>
+      <li><a href="support.html">Support</a></li>
+      <li><a href="feedback.html">Feedbacks</a></li>
+      <li><a href="login.html">Login / Profile</a></li>
+    </ul>
+  </nav>
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search for products..." />
+    <button onclick="searchProducts()">🔍</button>
+  </div>
+</header>
+
+<!-- Main Content -->
+<main>
+  <section id="trend-analysis">
+    <h2>Crop Prices (Last 7 Days)</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Crop</th>
+          <th>Day 1</th>
+          <th>Day 2</th>
+          <th>Day 3</th>
+          <th>Day 4</th>
+          <th>Day 5</th>
+          <th>Day 6</th>
+          <th>Day 7</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Coarse Rice</td>
+          <td>50৳</td>
+          <td>51৳</td>
+          <td>52৳</td>
+          <td>52৳</td>
+          <td>53৳</td>
+          <td>53৳</td>
+          <td>54৳</td>
+        </tr>
+        <tr>
+          <td>Fine Rice</td>
+          <td>65৳</td>
+          <td>66৳</td>
+          <td>66৳</td>
+          <td>67৳</td>
+          <td>67৳</td>
+          <td>68৳</td>
+          <td>68৳</td>
+        </tr>
+        <tr>
+          <td>Wheat Flour (Atta)</td>
+          <td>62৳</td>
+          <td>63৳</td>
+          <td>63৳</td>
+          <td>64৳</td>
+          <td>64৳</td>
+          <td>64৳</td>
+          <td>65৳</td>
+        </tr>
+        <tr>
+          <td>Lentils (Masoor Dal)</td>
+          <td>125৳</td>
+          <td>126৳</td>
+          <td>127৳</td>
+          <td>128৳</td>
+          <td>129৳</td>
+          <td>130৳</td>
+          <td>130৳</td>
+        </tr>
+        <tr>
+          <td>Green Grams (Moong Dal)</td>
+          <td>115৳</td>
+          <td>116৳</td>
+          <td>117৳</td>
+          <td>118৳</td>
+          <td>119৳</td>
+          <td>120৳</td>
+          <td>121৳</td>
+        </tr>
+        <tr>
+          <td>Soybean Oil</td>
+          <td>175৳</td>
+          <td>176৳</td>
+          <td>177৳</td>
+          <td>178৳</td>
+          <td>179৳</td>
+          <td>180৳</td>
+          <td>180৳</td>
+        </tr>
+        <tr>
+          <td>Mustard Oil</td>
+          <td>225৳</td>
+          <td>226৳</td>
+          <td>227৳</td>
+          <td>228৳</td>
+          <td>229৳</td>
+          <td>230৳</td>
+          <td>230৳</td>
+        </tr>
+        <tr>
+          <td>Potatoes</td>
+          <td>70৳</td>
+          <td>71৳</td>
+          <td>72৳</td>
+          <td>73৳</td>
+          <td>74৳</td>
+          <td>75৳</td>
+          <td>75৳</td>
+        </tr>
+        <tr>
+          <td>Onions</td>
+          <td>100৳</td>
+          <td>101৳</td>
+          <td>102৳</td>
+          <td>103৳</td>
+          <td>104৳</td>
+          <td>105৳</td>
+          <td>106৳</td>
+        </tr>
+        <tr>
+          <td>Garlic</td>
+          <td>210৳</td>
+          <td>211৳</td>
+          <td>212৳</td>
+          <td>213৳</td>
+          <td>214৳</td>
+          <td>215৳</td>
+          <td>216৳</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="trend-graphs">
+    <h2>Price Trends Graph (Last 7 Days)</h2>
+    <canvas id="cropChart" width="400" height="200"></canvas>
+  </section>
+</main>
+
+<script>
+  const ctx = document.getElementById('cropChart').getContext('2d');
+
+  const gradientBlue = ctx.createLinearGradient(0, 0, 0, 400);
+  gradientBlue.addColorStop(0, 'rgba(0, 123, 255, 0.4)');
+  gradientBlue.addColorStop(1, 'rgba(0, 123, 255, 0)');
+
+  const gradientGreen = ctx.createLinearGradient(0, 0, 0, 400);
+  gradientGreen.addColorStop(0, 'rgba(40, 167, 69, 0.4)');
+  gradientGreen.addColorStop(1, 'rgba(40, 167, 69, 0)');
+
+  const gradientOrange = ctx.createLinearGradient(0, 0, 0, 400);
+  gradientOrange.addColorStop(0, 'rgba(255, 159, 64, 0.4)');
+  gradientOrange.addColorStop(1, 'rgba(255, 159, 64, 0)');
+
+  const gradientPurple = ctx.createLinearGradient(0, 0, 0, 400);
+  gradientPurple.addColorStop(0, 'rgba(153, 102, 255, 0.4)');
+  gradientPurple.addColorStop(1, 'rgba(153, 102, 255, 0)');
+
+  const gradientYellow = ctx.createLinearGradient(0, 0, 0, 400);
+  gradientYellow.addColorStop(0, 'rgba(255, 205, 86, 0.4)');
+  gradientYellow.addColorStop(1, 'rgba(255, 205, 86, 0)');
+
+  const gradientRed = ctx.createLinearGradient(0, 0, 0, 400);
+  gradientRed.addColorStop(0, 'rgba(255, 99, 132, 0.4)');
+  gradientRed.addColorStop(1, 'rgba(255, 99, 132, 0)');
+
+  const gradientTeal = ctx.createLinearGradient(0, 0, 0, 400);
+  gradientTeal.addColorStop(0, 'rgba(0, 255, 255, 0.4)');
+  gradientTeal.addColorStop(1, 'rgba(0, 255, 255, 0)');
+
+  const cropChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'],
+      datasets: [
+        {
+          label: 'Coarse Rice',
+          data: [50, 51, 52, 52, 53, 53, 54],
+          borderColor: 'blue',
+          backgroundColor: gradientBlue,
+          borderWidth: 4,
+          fill: true,
+          cubicInterpolationMode: 'monotone'
+        },
+        {
+          label: 'Fine Rice',
+          data: [65, 66, 66, 67, 67, 68, 68],
+          borderColor: 'green',
+          backgroundColor: gradientGreen,
+          borderWidth: 4,
+          fill: true,
+          cubicInterpolationMode: 'monotone'
+        },
+        {
+          label: 'Wheat Flour (Atta)',
+          data: [62, 63, 63, 64, 64, 64, 65],
+          borderColor: 'orange',
+          backgroundColor: gradientOrange,
+          borderWidth: 4,
+          fill: true,
+          cubicInterpolationMode: 'monotone'
+        },
+        {
+          label: 'Lentils (Masoor Dal)',
+          data: [125, 126, 127, 128, 129, 130, 130],
+          borderColor: 'purple',
+          backgroundColor: gradientPurple,
+          borderWidth: 4,
+          fill: true,
+          cubicInterpolationMode: 'monotone'
+        },
+        {
+          label: 'Green Grams (Moong Dal)',
+          data: [115, 116, 117, 118, 119, 120, 121],
+          borderColor: 'yellow',
+          backgroundColor: gradientYellow,
+          borderWidth: 4,
+          fill: true,
+          cubicInterpolationMode: 'monotone'
+        },
+        {
+          label: 'Soybean Oil',
+          data: [175, 176, 177, 178, 179, 180, 180],
+          borderColor: 'red',
+          backgroundColor: gradientRed,
+          borderWidth: 4,
+          fill: true,
+          cubicInterpolationMode: 'monotone'
+        },
+        {
+          label: 'Mustard Oil',
+          data: [225, 226, 227, 228, 229, 230, 230],
+          borderColor: 'teal',
+          backgroundColor: gradientTeal,
+          borderWidth: 4,
+          fill: true,
+          cubicInterpolationMode: 'monotone'
+        },
+        {
+          label: 'Potatoes',
+          data: [70, 71, 72, 73, 74, 75, 75],
+          borderColor: 'purple',
+          backgroundColor: gradientPurple,
+          borderWidth: 4,
+          fill: true,
+          cubicInterpolationMode: 'monotone'
+        },
+        {
+          label: 'Onions',
+          data: [100, 101, 102, 103, 104, 105, 106],
+          borderColor: 'green',
+          backgroundColor: gradientGreen,
+          borderWidth: 4,
+          fill: true,
+          cubicInterpolationMode: 'monotone'
+        },
+        {
+          label: 'Garlic',
+          data: [210, 211, 212, 213, 214, 215, 216],
+          borderColor: 'blue',
+          backgroundColor: gradientBlue,
+          borderWidth: 4,
+          fill: true,
+          cubicInterpolationMode: 'monotone'
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        title: {
+          display: true,
+          text: 'Crop Prices for the Last 7 Days',
+          font: {
+            size: 20
+          }
+        },
+        tooltip: {
+          mode: 'index',
+          intersect: false,
+          backgroundColor: 'rgba(0,0,0,0.7)',
+          titleColor: 'white',
+          bodyColor: 'white',
+          borderColor: 'rgba(255,255,255,0.2)',
+          borderWidth: 1,
+        },
+      },
+      scales: {
+        x: {
+          title: {
+            display: true,
+            text: 'Days'
+          }
+        },
+        y: {
+          title: {
+            display: true,
+            text: 'Price (৳)'
+          }
+        }
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
