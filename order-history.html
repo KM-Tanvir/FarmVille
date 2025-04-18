@@ -55,6 +55,182 @@
   </div>
 </section>
 
+
+
+<!-- Order Form Section -->
+<section>
+  <h2 class="text-center">Complete Your Order</h2>
+  <p class="text-center">Please fill in your details to place your order.</p>
+  <form id="orderForm">
+      <!-- Personal Information -->
+      <div class="form-section">
+          <h3>Personal Information</h3>
+          <div class="form-row">
+              <div class="form-group">
+                  <label for="firstName" class="form-label required-field">First Name</label>
+                  <input type="text" id="firstName" class="form-control" required>
+              </div>
+              <div class="form-group">
+                  <label for="lastName" class="form-label required-field">Last Name</label>
+                  <input type="text" id="lastName" class="form-control" required>
+              </div>
+          </div>
+          <div class="form-row">
+              <div class="form-group">
+                  <label for="email" class="form-label required-field">Email Address</label>
+                  <input type="email" id="email" class="form-control" required>
+              </div>
+              <div class="form-group">
+                  <label for="phone" class="form-label required-field">Phone Number</label>
+                  <input type="tel" id="phone" class="form-control" required>
+              </div>
+          </div>
+      </div>
+
+      <!-- Shipping Address -->
+      <div class="form-section">
+          <h3>Shipping Address</h3>
+          <div class="form-row">
+              <div class="form-group">
+                  <label for="houseNo" class="form-label required-field">House Number</label>
+                  <input type="text" id="houseNo" class="form-control" required>
+              </div>
+              <div class="form-group">
+                  <label for="street" class="form-label">Street</label>
+                  <input type="text" id="street" class="form-control">
+              </div>
+          </div>
+          <div class="form-group">
+            <label for="postOffice" class="form-label">Post Office</label>
+            <input type="text" id="postOffice" class="form-control">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+              <label for="zipCode" class="form-label required-field">ZIP/Postal Code</label>
+              <input type="text" id="zipCode" class="form-control" required>
+          </div>
+
+          <div class="form-row">
+              <div class="form-group">
+                  <label for="district" class="form-label required-field">District</label>
+                  <input type="text" id="district" class="form-control" required>
+              </div>
+
+              <div class="form-group">
+                  <label for="division" class="form-label required-field">Division</label>
+                  <select id="division" class="form-select" required>
+                      <option value="">Select Division</option>
+                      <option value="dhaka">Dhaka</option>
+                      <option value="chattogram">Chattogram</option>
+                      <option value="khulna">Khulna</option>
+                      <option value="barishal">Barishal</option>
+                      <option value="rajshahi">Rajshahi</option>
+                      <option value="rangpur">Rangpur</option>
+                      <option value="mymensingh">Mymensingh</option>
+                      <option value="sylhet">Sylhet</option>
+                  </select>
+              </div>
+
+<!-- Payment Information -->
+<div class="form-section">
+  <h3>Payment Method</h3>
+  <div class="payment-options">
+      <div class="payment-option">
+          <input type="radio" id="creditCard" name="paymentMethod" value="creditCard" checked>
+          <label for="creditCard">Credit Card</label>
+      </div>
+      <div class="payment-option">
+          <input type="radio" id="mobileMoney" name="paymentMethod" value="mobileMoney">
+          <label for="mobileMoney">Mobile Money</label>
+      </div>
+      <div class="payment-option">
+          <input type="radio" id="cashOnDelivery" name="paymentMethod" value="cashOnDelivery">
+          <label for="cashOnDelivery">Cash on Delivery</label>
+      </div>
+  </div>
+
+  <!-- Credit Card Details (shown by default) -->
+  <div id="creditCardDetails" class="payment-details">
+      <div class="form-row">
+          <div class="form-group">
+              <label for="cardName" class="form-label required-field">Name on Card</label>
+              <input type="text" id="cardName" class="form-control">
+          </div>
+          <div class="form-group">
+              <label for="cardNumber" class="form-label required-field">Card Number</label>
+              <input type="text" id="cardNumber" class="form-control" placeholder="XXXX XXXX XXXX XXXX">
+          </div>
+      </div>
+      <div class="form-row">
+          <div class="form-group">
+              <label for="expiryDate" class="form-label required-field">Expiry Date</label>
+              <input type="text" id="expiryDate" class="form-control" placeholder="MM/YY">
+          </div>
+          <div class="form-group">
+              <label for="cvv" class="form-label required-field">CVV</label>
+              <input type="text" id="cvv" class="form-control" placeholder="XXX">
+          </div>
+      </div>
+  </div>
+  
+  <!-- Mobile Money Details (initially hidden) -->
+  <div id="mobileMoneyDetails" class="payment-details" style="display: none;">
+      <div class="form-row">
+          <div class="form-group">
+              <label for="mobileProvider" class="form-label required-field">Mobile Payment Provider</label>
+              <select id="mobileProvider" class="form-select">
+                  <option value="">Select Provider</option>
+                  <option value="bkash">bKash</option>
+                  <option value="nagad">Nagad</option>
+                  <option value="rocket">Rocket</option>
+              </select>
+          </div>
+          <div class="form-group">
+              <label for="mobileNumber" class="form-label required-field">Mobile Number</label>
+              <input type="tel" id="mobileNumber" class="form-control" placeholder="01XXXXXXXXX">
+          </div>
+      </div>
+  </div>
+  
+  <!-- Cash on Delivery Details (initially hidden) -->
+  <div id="cashOnDeliveryDetails" class="payment-details" style="display: none;">
+      <div class="alert alert-info">
+          <strong>Cash on Delivery:</strong> Pay in cash when your order arrives. Please have the exact amount ready.
+      </div>
+  </div>
+</div>
+
+
+      <!-- Additional Information -->
+      <div class="form-section">
+          <h3>Additional Information</h3>
+          <div class="checkbox-group">
+              <label>
+                  <input type="checkbox" id="farmUpdates">
+                  Receive updates about our local farm events and activities
+              </label>
+              <label>
+                  <input type="checkbox" id="termsAndConditions" required>
+                  I agree to the <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a>
+              </label>
+          </div>
+          <div class="form-group">
+              <label for="orderNotes" class="form-label">Order Notes (Optional)</label>
+              <textarea id="orderNotes" class="form-control" rows="3" placeholder="Any additional notes about your order..."></textarea>
+          </div>
+      </div>
+
+ 
+      <!-- Submit Button -->
+     <section>
+      <div class="text-center">
+          <button type="submit" class="btn" id="submitOrder">Place Order</button>
+      </div>
+    </section>
+  </form>
+</section>
+
+
 <section class="content-box">
   <h2 class="text-center">Order History</h2>
 
@@ -189,7 +365,12 @@
     
     // Setup event listeners
     document.getElementById('clearCart').addEventListener('click', clearCart);
-    document.getElementById('placeOrder').addEventListener('click', placeOrder);
+    
+    // Get the placeOrder button and add event listener
+    const placeOrderBtn = document.getElementById('placeOrder');
+    if (placeOrderBtn) {
+      placeOrderBtn.addEventListener('click', placeOrder);
+    }
   });
   
   function loadCart() {
@@ -197,6 +378,8 @@
     const cartItems = document.getElementById('cartItems');
     const emptyCartMessage = document.getElementById('emptyCartMessage');
     const cartSummary = document.getElementById('cartSummary');
+    const clearCartBtn = document.getElementById('clearCart');
+    const placeOrderBtn = document.getElementById('placeOrder');
     
     // Update cart count
     document.getElementById('cartCount').innerText = cart.reduce((total, item) => total + item.quantity, 0);
@@ -207,15 +390,15 @@
     if (cart.length === 0) {
       emptyCartMessage.style.display = 'block';
       cartSummary.style.display = 'none';
-      document.getElementById('clearCart').style.display = 'none';
-      document.getElementById('placeOrder').style.display = 'none';
+      clearCartBtn.style.display = 'none';
+      placeOrderBtn.style.display = 'none';
       return;
     }
     
     emptyCartMessage.style.display = 'none';
     cartSummary.style.display = 'block';
-    document.getElementById('clearCart').style.display = 'inline-block';
-    document.getElementById('placeOrder').style.display = 'inline-block';
+    clearCartBtn.style.display = 'inline-block';
+    placeOrderBtn.style.display = 'inline-block';
     
     // Create cart items table
     const table = document.createElement('table');
@@ -271,7 +454,7 @@
     cartItems.appendChild(table);
     
     // Update cart summary
-    const deliveryFee = 100; // Fixed delivery fee
+    const deliveryFee = 60; // Fixed delivery fee
     const total = subtotal + deliveryFee;
     
     document.getElementById('totalItems').innerText = totalItems;
@@ -344,6 +527,27 @@
     }
   }
 </script>
+<script>
+  // Toggle payment details based on selected payment method
+  document.querySelectorAll('input[name="paymentMethod"]').forEach(input => {
+      input.addEventListener('change', function() {
+          // Hide all payment details first
+          document.querySelectorAll('.payment-details').forEach(details => {
+              details.style.display = 'none';
+          });
+          
+          // Show the selected payment method's details
+          const selectedMethod = this.value;
+          if (selectedMethod === 'creditCard') {
+              document.getElementById('creditCardDetails').style.display = 'block';
+          } else if (selectedMethod === 'mobileMoney') {
+              document.getElementById('mobileMoneyDetails').style.display = 'block';
+          } else if (selectedMethod === 'cashOnDelivery') {
+              document.getElementById('cashOnDeliveryDetails').style.display = 'block';
+          }
+      });
+  });
+  </script>
 
 </body>
 </html>
