@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Collapsible Sidebar Navbar</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      font-family: Arial, sans-serif;
+    }
+
+    .sidebar {
+      width: 240px;
+      background-color: #f8f9fa;
+      height: 100vh;
+      transition: width 0.3s;
+      overflow: hidden;
+      position: fixed;
+    }
+
+    .sidebar.collapsed {
+      width: 60px;
+    }
+
+    .toggle-btn {
+      background-color: #4088f5;
+      color: white;
+      border: none;
+      width: 100%;
+      padding: 15px;
+      text-align: left;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .toggle-btn span {
+      font-size: 20px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin-top: 10px;
+    }
+
+    li {
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+    }
+
+    li:hover {
+      background-color: #dee2e6;
+    }
+
+    li .icon {
+      margin-right: 10px;
+      font-size: 18px;
+    }
+
+    .collapsed .text {
+      display: none;
+      align-items: center;
+    }
+
+    .main-content {
+      margin-left: 240px;
+      padding: 20px;
+      transition: margin-left 0.3s;
+      width: 100%;
+    }
+
+    .collapsed ~ .main-content {
+      margin-left: 60px;
+    }
+
+    a {
+      text-decoration:none;
+      color: black;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      margin: 7px;
+      padding: 7px;
+      text-align: center;
+    }
+    /* style.css */
+.sidebar a {
+  text-decoration: none;
+}
+
+  </style>
+  <style>
+    .sidebar a.active {
+        background-color: #3482f8;
+        color: white;
+        font-weight: bold;
+        border-radius: 7px;
+    }
+</style>
+
+<!-- for bootstrap css -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+
+</head>
+<body>
+
+  <div class="sidebar" id="sidebar">
+    <button class="toggle-btn" onclick="toggleSidebar()">
+      <span>☰</span>
+    </button>
+    <ul>
+      <li>
+        <a href="/index.html" >
+          <span class="icon">🏠</span>
+          <span class="text">Home</span>
+        </a>
+      </li>
+      <li>
+        <a href="/vendor_Prduct_info.html">
+          <span class="icon">ℹ️</span>
+          <span class="text">Product info</span>
+        </a>
+      </li>
+      <li>
+        <a href="/vendor_demand_data.html">
+          <span class="icon">📈</span>
+          <span class="text">Demand Data</span>
+        </a>
+      </li>
+      <li>
+        <a href="/vendor_supply.html">
+          <span class="icon">🚚</span>
+          <span class="text">Supply Levels</span>
+        </a>
+      </li>
+      <li>
+        <a href="/price_trends.html">
+          <span class="icon">📊</span>
+          <span class="text">Prices and Trends</span>
+        </a>
+      </li>
+      <li>
+        <a href="/farmer's_directory.html" class="active">
+          <span class="icon">📝</span>
+          <span class="text">Farmer's Directories. </span>
+        </a>
+      </li>
+      <li>
+        <a href="">
+          <span class="icon">⏻</span>
+          <span class="text">Sign Out</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <div class="main-content">
+    <h1>Welcome!</h1>
+    <p>This is for farmer's directory</p>
+  </div>
+
+  <script>
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("collapsed");
+    }
+  </script>
+
+
+<!-- for bootstrap js -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+
+</body>
+</html>
